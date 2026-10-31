@@ -1,0 +1,32 @@
+# Node / Next.js
+node_modules/
+.next/
+out/
+*.log
+npm-debug.log*
+.env
+.env.local
+.env.*.local
+
+# C++ / CMake
+backend/build/
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+.ninja_deps
+.ninja_log
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
