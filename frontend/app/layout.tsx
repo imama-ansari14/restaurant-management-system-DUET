@@ -3,10 +3,12 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Maison — Restaurant & Kitchen",
-  description: "A refined restaurant ordering and billing experience."
+  description: "A refined restaurant ordering and billing experience.",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body>{children}</body>
