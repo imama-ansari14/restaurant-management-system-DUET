@@ -259,11 +259,13 @@ export default function Home() {
   }
 
   return (
+    // Main container
     <main className="min-h-screen overflow-hidden">
       <div className="bg-[#241e1a] px-4 py-2 text-center text-[10px] font-semibold uppercase tracking-[.22em] text-[#e7d7bd] sm:text-[11px]">
         A little indulgence, served with intention · Karachi
       </div>
 
+      {/* Header */}
       <header className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
         <a href="#" className="flex items-center gap-3">
           <span className="grid h-11 w-11 place-items-center rounded-full border border-[#bd965d]/60 text-[#8b6538]">
@@ -301,6 +303,7 @@ export default function Home() {
         </a>
       </header>
 
+      {/* Hero Section */}
       <section className="mx-auto grid max-w-7xl gap-8 px-5 pb-16 pt-5 sm:px-8 lg:grid-cols-[.92fr_1.08fr] lg:items-center lg:gap-12 lg:pb-24">
         <div className="relative z-10 py-4 lg:py-12">
           <div className="mb-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[.28em] text-[#96754c]">
@@ -375,6 +378,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Story Section */}
       <section
         id="story"
         className="border-y border-[#e9e0d5] bg-[#f1ece4] px-5 py-10 sm:px-8"
@@ -395,7 +399,7 @@ export default function Home() {
         </div>
       </section>
 
-{/* Menu Section */}
+      {/* Menu Section */}
       <section
         id="menu"
         className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-24"
@@ -523,6 +527,7 @@ export default function Home() {
         )}
       </section>
 
+      {/* Order Section */}
       <section id="order" className="bg-[#eee8df] px-5 py-16 sm:px-8 lg:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.8fr_1.2fr]">
           <div>
@@ -675,6 +680,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Footer */}
       <footer className="bg-[#241e1a] px-5 py-8 text-center text-[#d7c8b5]">
         <p className="display-font text-2xl">
           maison<span className="text-[#bd965d]">.</span>
@@ -687,6 +693,7 @@ export default function Home() {
         </p>
       </footer>
 
+      {/* Receipt Modal */}
       {receipt && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-[#17120f]/65 p-4 backdrop-blur-sm"
