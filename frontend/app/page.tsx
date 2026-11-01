@@ -460,48 +460,64 @@ export default function Home() {
         </div>
 
         {visibleMenu.length ? (
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {visibleMenu.map((item) => (
               <article
                 key={item.id}
-                className="group overflow-hidden rounded-sm border border-[#eae2d8] bg-white transition duration-300 hover:-translate-y-1 hover:shadow-soft"
+                className="group overflow-hidden rounded-2xl border border-[#eae2d8] bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-[#572b35]/10"
               >
-                <div className="relative h-52 overflow-hidden bg-[#e8e0d5]">
+                {/* Food Image */}
+                <div className="relative h-60 overflow-hidden bg-[#e8e0d5]">
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
+
+                  {/* Image Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-70" />
+
+                  {/* Food Tag */}
                   {item.tag && (
-                    <span className="absolute left-3 top-3 bg-[#f8f5ef]/95 px-3 py-2 text-[8px] font-bold uppercase tracking-[.16em] text-[#76573a]">
+                    <span className="absolute left-4 top-4 rounded-full border border-white/50 bg-[#faf8f4]/95 px-1 py-2 text-[9px] font-bold uppercase tracking-[.16em] text-[#76573a] shadow-sm">
                       {item.tag}
                     </span>
                   )}
-                  <button
-                    onClick={() => addItem(item)}
-                    aria-label={`Add ${item.name}`}
-                    className="absolute bottom-3 right-3 grid h-10 w-10 place-items-center rounded-full bg-[#572b35] text-white shadow-lg transition hover:scale-105"
-                  >
-                    <Plus size={18} />
-                  </button>
                 </div>
-                <div className="p-4">
-                  <p className="text-[8px] font-bold uppercase tracking-[.2em] text-[#a17b4c]">
-                    {item.category}
-                  </p>
-                  <h3 className="display-font mt-2 text-xl">{item.name}</h3>
-                  <p className="mt-2 min-h-[40px] text-[10px] leading-5 text-[#8a8177]">
+
+                {/* Food Details */}
+                <div className="p-5">
+                  <div className="flex items-center justify-between">
+                    <span className="rounded-full bg-[#f7f2eb] px-3 py-1.5 text-[9px] font-bold uppercase tracking-[.14em] text-[#987447]">
+                      {item.category}
+                    </span>
+                  </div>
+
+                  <h3 className="display-font mt-4 text-2xl font-semibold leading-tight text-[#302720]">
+                    {item.name}
+                  </h3>
+
+                  <p className="mt-3 min-h-[48px] text-[11px] leading-6 text-[#8a8177]">
                     {item.description}
                   </p>
-                  <div className="mt-4 flex items-center justify-between border-t border-[#f0ebe5] pt-3">
-                    <span className="text-xs font-bold">
-                      {money(item.price)}
-                    </span>
+
+                  {/* Price and Button */}
+                  <div className="mt-5 flex items-center justify-between border-t border-[#f0ebe5] pt-4">
+                    <div>
+                      <span className="block text-[9px] uppercase tracking-widest text-[#a39789]">
+                        Price
+                      </span>
+                      <span className="mt-1 block text-base font-bold text-[#572b35]">
+                        {money(item.price)}
+                      </span>
+                    </div>
+
                     <button
                       onClick={() => addItem(item)}
-                      className="text-[9px] font-bold uppercase tracking-[.15em] text-[#8a5b48] hover:text-[#572b35]"
+                      className="flex items-center gap-2 rounded-full bg-[#572b35] px-4 py-3 text-[10px] font-bold uppercase tracking-wider text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#bd965d] hover:shadow-lg active:scale-95"
                     >
-                      Add to order +
+                      <Plus size={14} />
+                      Add to order
                     </button>
                   </div>
                 </div>
