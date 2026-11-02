@@ -306,10 +306,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="mx-auto grid max-w-7xl gap-8 px-5 pb-16 pt-5 sm:px-8 lg:grid-cols-[.92fr_1.08fr] lg:items-center lg:gap-12 lg:pb-24">
         <div className="relative z-10 py-4 lg:py-12">
-          <div className="mb-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[.28em] text-[#96754c]">
-            <span className="h-px w-9 bg-[#bd965d]" /> Thoughtfully made,
-            beautifully served
-          </div>
+          <div className="mb-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[.28em] text-[#96754c]"></div>
           <h1 className="display-font max-w-xl text-5xl leading-[1.08] tracking-[-.04em] sm:text-6xl lg:text-[76px]">
             Good food.
             <br />
@@ -326,10 +323,6 @@ export default function Home() {
             >
               Explore the menu <ArrowDownRight size={16} />
             </a>
-            <span className="flex items-center gap-2 text-[11px] text-[#8a8177]">
-              <Clock3 size={14} className="text-[#bd965d]" /> Open daily · 12 PM
-              – 11 PM
-            </span>
           </div>
           <div className="mt-12 flex items-center gap-6 border-t border-[#e5ddd1] pt-6">
             <div>
@@ -363,6 +356,8 @@ export default function Home() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
           </div>
+
+          {/* overlay card */}
           <div className="absolute bottom-0 left-0 max-w-[230px] rounded-sm bg-white p-5 shadow-soft sm:p-6">
             <Sparkles size={17} className="text-[#bd965d]" />
             <p className="display-font mt-3 text-xl leading-snug">
@@ -444,7 +439,7 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="mb-5 flex items-center justify-between text-[10px] text-[#9a8e81]">
+        {/* <div className="mb-5 flex items-center justify-between text-[10px] text-[#9a8e81]">
           <span>{visibleMenu.length} thoughtful picks</span>
           <span className="flex items-center gap-1.5">
             {apiOnline ? (
@@ -457,7 +452,7 @@ export default function Home() {
               </>
             )}
           </span>
-        </div>
+        </div> */}
 
         {visibleMenu.length ? (
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
