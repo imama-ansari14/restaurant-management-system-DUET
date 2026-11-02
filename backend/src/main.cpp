@@ -1,5 +1,5 @@
 #include "crow.h"
-
+#include "crow/middlewares/cors.h"
 #include <algorithm>
 #include <cctype>
 #include <cstdlib>
@@ -125,8 +125,16 @@ crow::json::wvalue receiptToJson(const Receipt &receipt)
 
 int main()
 {
-    crow::SimpleApp app;
+    crow::App<crow::CORSHandler> app;
+    auto &cors = app.get_middleware<crow::CORSHandler>();
 
+    cors.global()
+        .origin("http://localhost:3000")
+        .methods(
+            crow::HTTPMethod::GET,
+            crow::HTTPMethod::POST,
+            crow::HTTPMethod::OPTIONS)
+        .headers("Content-Type");
     CROW_ROUTE(app, "/")([]
                          { return "Maison Restaurant API is running. Try /api/health or /api/menu."; });
 

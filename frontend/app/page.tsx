@@ -259,11 +259,13 @@ export default function Home() {
   }
 
   return (
+    // Main container
     <main className="min-h-screen overflow-hidden">
       <div className="bg-[#241e1a] px-4 py-2 text-center text-[10px] font-semibold uppercase tracking-[.22em] text-[#e7d7bd] sm:text-[11px]">
         A little indulgence, served with intention · Karachi
       </div>
 
+      {/* Header */}
       <header className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
         <a href="#" className="flex items-center gap-3">
           <span className="grid h-11 w-11 place-items-center rounded-full border border-[#bd965d]/60 text-[#8b6538]">
@@ -301,12 +303,10 @@ export default function Home() {
         </a>
       </header>
 
+      {/* Hero Section */}
       <section className="mx-auto grid max-w-7xl gap-8 px-5 pb-16 pt-5 sm:px-8 lg:grid-cols-[.92fr_1.08fr] lg:items-center lg:gap-12 lg:pb-24">
         <div className="relative z-10 py-4 lg:py-12">
-          <div className="mb-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[.28em] text-[#96754c]">
-            <span className="h-px w-9 bg-[#bd965d]" /> Thoughtfully made,
-            beautifully served
-          </div>
+          <div className="mb-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[.28em] text-[#96754c]"></div>
           <h1 className="display-font max-w-xl text-5xl leading-[1.08] tracking-[-.04em] sm:text-6xl lg:text-[76px]">
             Good food.
             <br />
@@ -323,10 +323,6 @@ export default function Home() {
             >
               Explore the menu <ArrowDownRight size={16} />
             </a>
-            <span className="flex items-center gap-2 text-[11px] text-[#8a8177]">
-              <Clock3 size={14} className="text-[#bd965d]" /> Open daily · 12 PM
-              – 11 PM
-            </span>
           </div>
           <div className="mt-12 flex items-center gap-6 border-t border-[#e5ddd1] pt-6">
             <div>
@@ -360,6 +356,8 @@ export default function Home() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
           </div>
+
+          {/* overlay card */}
           <div className="absolute bottom-0 left-0 max-w-[230px] rounded-sm bg-white p-5 shadow-soft sm:p-6">
             <Sparkles size={17} className="text-[#bd965d]" />
             <p className="display-font mt-3 text-xl leading-snug">
@@ -375,6 +373,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Story Section */}
       <section
         id="story"
         className="border-y border-[#e9e0d5] bg-[#f1ece4] px-5 py-10 sm:px-8"
@@ -395,7 +394,7 @@ export default function Home() {
         </div>
       </section>
 
-{/* Menu Section */}
+      {/* Menu Section */}
       <section
         id="menu"
         className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-24"
@@ -440,7 +439,7 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="mb-5 flex items-center justify-between text-[10px] text-[#9a8e81]">
+        {/* <div className="mb-5 flex items-center justify-between text-[10px] text-[#9a8e81]">
           <span>{visibleMenu.length} thoughtful picks</span>
           <span className="flex items-center gap-1.5">
             {apiOnline ? (
@@ -453,51 +452,67 @@ export default function Home() {
               </>
             )}
           </span>
-        </div>
+        </div> */}
 
         {visibleMenu.length ? (
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {visibleMenu.map((item) => (
               <article
                 key={item.id}
-                className="group overflow-hidden rounded-sm border border-[#eae2d8] bg-white transition duration-300 hover:-translate-y-1 hover:shadow-soft"
+                className="group overflow-hidden rounded-2xl border border-[#eae2d8] bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-[#572b35]/10"
               >
-                <div className="relative h-52 overflow-hidden bg-[#e8e0d5]">
+                {/* Food Image */}
+                <div className="relative h-60 overflow-hidden bg-[#e8e0d5]">
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
+
+                  {/* Image Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-70" />
+
+                  {/* Food Tag */}
                   {item.tag && (
-                    <span className="absolute left-3 top-3 bg-[#f8f5ef]/95 px-3 py-2 text-[8px] font-bold uppercase tracking-[.16em] text-[#76573a]">
+                    <span className="absolute left-4 top-4 rounded-full border border-white/50 bg-[#faf8f4]/95 px-1 py-2 text-[9px] font-bold uppercase tracking-[.16em] text-[#76573a] shadow-sm">
                       {item.tag}
                     </span>
                   )}
-                  <button
-                    onClick={() => addItem(item)}
-                    aria-label={`Add ${item.name}`}
-                    className="absolute bottom-3 right-3 grid h-10 w-10 place-items-center rounded-full bg-[#572b35] text-white shadow-lg transition hover:scale-105"
-                  >
-                    <Plus size={18} />
-                  </button>
                 </div>
-                <div className="p-4">
-                  <p className="text-[8px] font-bold uppercase tracking-[.2em] text-[#a17b4c]">
-                    {item.category}
-                  </p>
-                  <h3 className="display-font mt-2 text-xl">{item.name}</h3>
-                  <p className="mt-2 min-h-[40px] text-[10px] leading-5 text-[#8a8177]">
+
+                {/* Food Details */}
+                <div className="p-5">
+                  <div className="flex items-center justify-between">
+                    <span className="rounded-full bg-[#f7f2eb] px-3 py-1.5 text-[9px] font-bold uppercase tracking-[.14em] text-[#987447]">
+                      {item.category}
+                    </span>
+                  </div>
+
+                  <h3 className="display-font mt-4 text-2xl font-semibold leading-tight text-[#302720]">
+                    {item.name}
+                  </h3>
+
+                  <p className="mt-3 min-h-[48px] text-[11px] leading-6 text-[#8a8177]">
                     {item.description}
                   </p>
-                  <div className="mt-4 flex items-center justify-between border-t border-[#f0ebe5] pt-3">
-                    <span className="text-xs font-bold">
-                      {money(item.price)}
-                    </span>
+
+                  {/* Price and Button */}
+                  <div className="mt-5 flex items-center justify-between border-t border-[#f0ebe5] pt-4">
+                    <div>
+                      <span className="block text-[9px] uppercase tracking-widest text-[#a39789]">
+                        Price
+                      </span>
+                      <span className="mt-1 block text-base font-bold text-[#572b35]">
+                        {money(item.price)}
+                      </span>
+                    </div>
+
                     <button
                       onClick={() => addItem(item)}
-                      className="text-[9px] font-bold uppercase tracking-[.15em] text-[#8a5b48] hover:text-[#572b35]"
+                      className="flex items-center gap-2 rounded-full bg-[#572b35] px-4 py-3 text-[10px] font-bold uppercase tracking-wider text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#bd965d] hover:shadow-lg active:scale-95"
                     >
-                      Add to order +
+                      <Plus size={14} />
+                      Add to order
                     </button>
                   </div>
                 </div>
@@ -523,6 +538,7 @@ export default function Home() {
         )}
       </section>
 
+      {/* Order Section */}
       <section id="order" className="bg-[#eee8df] px-5 py-16 sm:px-8 lg:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.8fr_1.2fr]">
           <div>
@@ -675,6 +691,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Footer */}
       <footer className="bg-[#241e1a] px-5 py-8 text-center text-[#d7c8b5]">
         <p className="display-font text-2xl">
           maison<span className="text-[#bd965d]">.</span>
@@ -687,6 +704,7 @@ export default function Home() {
         </p>
       </footer>
 
+      {/* Receipt Modal */}
       {receipt && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-[#17120f]/65 p-4 backdrop-blur-sm"
