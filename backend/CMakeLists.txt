@@ -18,4 +18,8 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Crow)
 
 add_executable(restaurant_api src/main.cpp)
-target_link_libraries(restaurant_api PRIVATE Crow::Crow ws2_32 mswsock)
+target_link_libraries(restaurant_api PRIVATE Crow::Crow)
+
+if(WIN32)
+    target_link_libraries(restaurant_api PRIVATE ws2_32 mswsock)
+endif()
