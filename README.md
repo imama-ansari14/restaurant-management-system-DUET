@@ -126,48 +126,6 @@ Example order body:
 }
 ```
 
-The C++ backend calculates prices. Do not trust a total sent by the browser.
-
-## Tax setting
-
-The demo uses a 5% tax rate in `backend/src/main.cpp`. Change `TAX_RATE` there if your teacher wants a different rate (or set it to `0.0` if your demo should have no tax).
-
----
-
-## Automated build checks
-
-The repository includes `.github/workflows/ci.yml`. GitHub Actions will attempt to build the Next.js frontend and compile the C++ backend whenever code is pushed to `main` or a Pull Request targets `main`. The first run may take longer because Crow is downloaded during the backend build. Check the **Actions** tab on GitHub for results.
-
-## Pull Request (PR) process
-
-1. Open the repository on GitHub.
-2. Click **Compare & pull request** for your branch.
-3. Set the base branch to `main`.
-4. Describe what changed and how you tested it.
-5. Ask the team lead to review.
-6. Merge only after the change is tested.
-
-Before starting new work, update your local `main`:
-
-```bash
-git switch main
-git pull origin main
-```
-
-Then update your feature branch:
-
-```bash
-git switch feature/menu-search
-git merge main
-```
-
-If a merge conflict appears, don't panic. Open the conflicted file, choose the correct combined code, save it, then:
-
-```bash
-git add .
-git commit -m "Resolve merge conflict"
-git push
-```
 
 # 5. Deployment
 
@@ -193,24 +151,3 @@ For a class demonstration with no backend hosting account, the simplest dependab
 - Connect the deployed frontend to the laptop only if the laptop is publicly reachable through a secure tunnel; otherwise present both locally.
 
 Do not put a private/local address such as `http://localhost:18080` into the deployed Vercel environment variable. `localhost` on Vercel means Vercel's own machine, not your laptop.
-
-
-
-# 6. Suggested task split
-
-| Member | Suggested responsibility |
-|---|---|
-| Team lead | Repository, project integration, Crow API, C++ architecture and testing |
-| MERN teammate | Next.js layout, responsive UI, frontend API integration |
-| Member 3 | Menu data, menu display, category/search functionality |
-| Member 4 | Order flow, billing/receipt UI, test cases and documentation |
-
-Everyone should contribute to and understand the C++ requirements. Rebalance tasks based on what each person wants to learn.
-
-## Useful official documentation
-
-- Next.js: https://nextjs.org/docs
-- Tailwind CSS: https://tailwindcss.com/docs
-- Crow: https://crowcpp.org/
-- CMake: https://cmake.org/documentation/
-- GitHub collaboration: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests
