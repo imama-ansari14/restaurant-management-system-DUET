@@ -24,18 +24,6 @@ restaurant-management-system/
 └── .gitignore
 ```
 
-## Requirements
-
-- Node.js 20.9 or newer (Node.js 22 LTS is a good choice)
-- npm
-- Git
-- C++17 compiler
-- CMake 3.20+
-- Git (CMake uses it to download Crow the first time)
-- Windows: MSYS2 UCRT64 with GCC, CMake and Git, or Visual Studio Build Tools
-- Docker Desktop is optional (useful for backend deployment/testing)
-
----
 
 # 1. Run the C++ backend locally
 
@@ -146,61 +134,6 @@ The demo uses a 5% tax rate in `backend/src/main.cpp`. Change `TAX_RATE` there i
 
 ---
 
-# 4. GitHub team workflow (4 members)
-
-## One-time setup by the team lead
-
-1. Create an **empty GitHub repository** named `restaurant-management-system`.
-2. Clone it to your computer.
-3. Copy these project files into the cloned repository.
-4. Commit and push the foundation to `main`.
-5. Invite the other three members as collaborators.
-
-```bash
-git clone https://github.com/YOUR-ORG/restaurant-management-system.git
-cd restaurant-management-system
-git add .
-git commit -m "Create project foundation"
-git push -u origin main
-```
-
-## Each member does this once
-
-```bash
-git clone https://github.com/YOUR-ORG/restaurant-management-system.git
-cd restaurant-management-system
-```
-
-Create a personal feature branch:
-
-```bash
-git switch -c feature/menu-ui
-```
-
-Use a different branch name for each person, e.g.:
-
-- `feature/frontend-layout`
-- `feature/menu-search`
-- `feature/orders-billing`
-- `feature/backend-api`
-
-Work only on your assigned files/features. Save and upload your work:
-
-```bash
-git status
-git add .
-git commit -m "Add menu search"
-git push -u origin feature/menu-search
-```
-
-After the first push, later updates from that branch use:
-
-```bash
-git add .
-git commit -m "Improve menu search"
-git push
-```
-
 ## Automated build checks
 
 The repository includes `.github/workflows/ci.yml`. GitHub Actions will attempt to build the Next.js frontend and compile the C++ backend whenever code is pushed to `main` or a Pull Request targets `main`. The first run may take longer because Crow is downloaded during the backend build. Check the **Actions** tab on GitHub for results.
@@ -236,16 +169,6 @@ git commit -m "Resolve merge conflict"
 git push
 ```
 
-**Team rules**
-- Never commit directly to `main` for normal feature work.
-- Pull the latest `main` before starting a task.
-- Keep commits small and descriptive.
-- Do not share ZIP files for every change; use branches and Pull Requests.
-- Do not commit `node_modules/`, `build/`, `.env.local`, passwords or API secrets.
-- Everyone must understand and be able to explain the C++ logic they submit.
-
----
-
 # 5. Deployment
 
 ## Frontend on Vercel
@@ -271,11 +194,7 @@ For a class demonstration with no backend hosting account, the simplest dependab
 
 Do not put a private/local address such as `http://localhost:18080` into the deployed Vercel environment variable. `localhost` on Vercel means Vercel's own machine, not your laptop.
 
-## Persistent data warning
 
-The current starter keeps receipts in RAM. Restarting the server clears them. For persistent orders, add a database or durable file storage and configure it for the chosen host. Do not rely on a container's temporary filesystem for important data.
-
----
 
 # 6. Suggested task split
 
