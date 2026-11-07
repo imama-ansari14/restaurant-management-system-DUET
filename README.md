@@ -1,7 +1,5 @@
 # Maison — Restaurant Management System
 
-A beginner-friendly group project starter built with **Next.js + Tailwind CSS** (frontend) and **C++17 + Crow** (backend).
-
 ## Features included
 
 - Display a restaurant menu with category filters and live search.
@@ -11,18 +9,6 @@ A beginner-friendly group project starter built with **Next.js + Tailwind CSS** 
 - Generate and print a receipt.
 - Health-check endpoint for testing the backend.
 
-> **Important project note:** this starter stores orders in memory. Orders disappear when the C++ server restarts. That is intentional for the first working milestone. Add file/database persistence only after the team has the core flow working.
-
-## Folder structure
-
-```text
-restaurant-management-system/
-├── frontend/             # Next.js + Tailwind CSS
-├── backend/              # C++17 + Crow HTTP API
-├── .github/              # GitHub Actions build checks + PR/issue templates
-├── README.md
-└── .gitignore
-```
 
 
 # 5. Deployment
@@ -48,4 +34,3 @@ For a class demonstration with no backend hosting account, the simplest dependab
 - Run the C++ backend on a team member's laptop during the presentation.
 - Connect the deployed frontend to the laptop only if the laptop is publicly reachable through a secure tunnel; otherwise present both locally.
 
-Do not put a private/local address such as `http://localhost:18080` into the deployed Vercel environment variable. `localhost` on Vercel means Vercel's own machine, not your laptop.
