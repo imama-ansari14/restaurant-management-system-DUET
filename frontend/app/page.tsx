@@ -106,7 +106,7 @@ const fallbackMenu: MenuItem[] = [
     category: "Drinks",
     price: 420,
     image:
-      "https://images.unsplash.com/photo-1513558161293-c1e634a6f025?w=900&q=85",
+      "https://images.rawpixel.com/image_social_landscape/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI1LTA0L3NyLWltYWdlLTA5MDQyMDI1LW1rYTAxLXMtMjIwXzEuanBn.jpg?utm_source=chatgpt.com",
     tag: "Refreshing",
   },
   {
@@ -264,44 +264,50 @@ export default function Home() {
       <div className="bg-[#241e1a] px-4 py-2 text-center text-[10px] font-semibold uppercase tracking-[.22em] text-[#e7d7bd] sm:text-[11px]">
         A little indulgence, served with intention · Karachi
       </div>
-
       {/* Header */}
-      <header className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
-        <a href="#" className="flex items-center gap-3">
-          <span className="grid h-11 w-11 place-items-center rounded-full border border-[#bd965d]/60 text-[#8b6538]">
-            <Utensils size={19} />
-          </span>
-          <span>
-            <span className="display-font block text-2xl font-semibold tracking-tight">
-              maison<span className="text-[#bd965d]">.</span>
+      <header className="fixed inset-x-0 top-0 z-[100] w-full border-b border-[#bd965d]/50 bg-[#faf8f4]/95 shadow-sm backdrop-blur-md">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
+          <a href="#" className="flex items-center gap-3">
+            <span className="grid h-11 w-11 place-items-center rounded-full border border-[#bd965d]/60 text-[#8b6538]">
+              <Utensils size={19} />
             </span>
-            <span className="block text-[8px] uppercase tracking-[.3em] text-[#8c8175]">
-              Kitchen & dining
+            <span>
+              <span className="display-font block text-2xl font-semibold tracking-tight">
+                maison<span className="text-[#bd965d]">.</span>
+              </span>
+              <span className="block text-[8px] uppercase tracking-[.3em] text-[#8c8175]">
+                Kitchen & dining
+              </span>
             </span>
-          </span>
-        </a>
-        <nav className="hidden items-center gap-8 text-xs font-semibold text-[#6f655c] md:flex">
-          <a href="#menu" className="hover:text-[#8b6538]">
-            Our menu
           </a>
-          <a href="#story" className="hover:text-[#8b6538]">
-            Our philosophy
+
+          <nav className="hidden items-center gap-8 text-xs font-semibold text-[#6f655c] md:flex">
+            <a href="#menu" className="hover:text-[#8b6538]">
+              Our menu
+            </a>
+            <a href="#story" className="hover:text-[#8b6538]">
+              Our philosophy
+            </a>
+            <a href="#order" className="hover:text-[#8b6538]">
+              Your order
+            </a>
+          </nav>
+
+          <a
+            href="#order"
+            className="relative flex items-center gap-2 rounded-full bg-[#572b35] px-4 py-3 text-xs font-semibold text-white transition hover:bg-[#42202a]"
+          >
+            <ShoppingBag size={15} />{" "}
+            <span className="hidden sm:inline">Your order</span>
+            <span className="grid h-5 min-w-5 place-items-center rounded-full bg-[#d8b982] px-1 text-[10px] text-[#2a2119]">
+              {itemCount}
+            </span>
           </a>
-          <a href="#order" className="hover:text-[#8b6538]">
-            Your order
-          </a>
-        </nav>
-        <a
-          href="#order"
-          className="relative flex items-center gap-2 rounded-full bg-[#572b35] px-4 py-3 text-xs font-semibold text-white transition hover:bg-[#42202a]"
-        >
-          <ShoppingBag size={15} />{" "}
-          <span className="hidden sm:inline">Your order</span>
-          <span className="grid h-5 min-w-5 place-items-center rounded-full bg-[#d8b982] px-1 text-[10px] text-[#2a2119]">
-            {itemCount}
-          </span>
-        </a>
+        </div>
       </header>
+
+      {/* Space reserved for fixed navbar */}
+      <div className="h-[84px]" />
 
       {/* Hero Section */}
       <section className="mx-auto grid max-w-7xl gap-8 px-5 pb-16 pt-5 sm:px-8 lg:grid-cols-[.92fr_1.08fr] lg:items-center lg:gap-12 lg:pb-24">
