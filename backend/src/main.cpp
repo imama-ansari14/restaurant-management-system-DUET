@@ -129,7 +129,7 @@ int main()
     auto &cors = app.get_middleware<crow::CORSHandler>();
 
     cors.global()
-        .origin("http://localhost:3000")
+        .origin("*")
         .methods(
             crow::HTTPMethod::GET,
             crow::HTTPMethod::POST,
